@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.bg1 {
+    background-color: aqua;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: auto;
+    align-items: center;
+}
+
+.txt {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 7px 7px 7px rgba(239, 234, 244, 0.936), 0 0 1em rgb(233, 60, 11), 0 0 0.2em rgb(239, 232, 237);
+}
+
+.buttonbaground {
+    background-color: transparent;
+}
+
+.buttonbaground, .contact-btn {
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.buttonbaground {
+    background-color: transparent;
+}
+
+.contact-btn {
+    background-color: #4CAF50;
+}
+
+.contact-btn:hover {
+    background-color: #45a049;
+}
+
+.btn1 {
+    background-color: #f44336;
+}
+
+.btn1:hover {
+    background-color: #d32f2f;
+}
+
+.btn-animate {
+    transition: transform 0.3s ease;
+}
+
+.btn-animate:hover {
+    transform: scale(1.1);
+}
+
+.search-input {
+    border-radius: 12px;
+    padding: 5px 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Animation Classes */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+.txt2 {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(217, 242, 248);
+    font-size: 30px;
+    text-shadow: 5px 5px 5px rgba(28, 27, 29, 0.936), 0 0 1em rgb(29, 25, 25), 0 0 0.2em rgb(216, 59, 59);
+}

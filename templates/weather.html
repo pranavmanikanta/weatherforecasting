@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/weather.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="d-flex bg1">
+        <div class="p-2 flex-fill animate__animated animate__bounceInLeft">
+            <img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-1024.png" width="60px" height="60px" alt="">
+        </div>
+        <div class="p-2 flex-fill txt animate__animated animate__fadeInDown txt">WEATHER FORECASTING WEBSITE</div>
+        <a href="{{ url_for('contact_us') }}">
+            <button type="button" class="btn custom-btn animate__animated animate__pulse animate__infinite">Contact Us</button>
+        </a>
+        
+        <div class="p-2 flex-fill animate__animated animate__zoomIn">
+            <a href="{{ url_for('about') }}">
+                <button class="btn custom-btn animate__animated animate__pulse animate__infinite">About Us</button>
+            </a>
+        </div>
+        
+        <div class="p-2 flex-fill animate__animated animate__bounceInRight">
+            <input type="search" placeholder="Search for cities.." height="40px" width="70px" class="search-input">
+            <button class="primary btn-animate">Search</button>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center animate__animated animate__fadeIn txt2">Weather Analysis</h2>
+        <form method="POST" class="animate__animated animate__fadeInUp">
+            <div class="mb-3">
+                <label for="num_cities" class="form-label">Number of cities to analyze:</label>
+                <input type="number" class="form-control" id="num_cities" name="num_cities" min="1" required onchange="generateCityInputs()">
+            </div>
+            <div id="cities-inputs"></div>
+            <button type="submit" class="btn btn-primary mt-3 btn-animate">Submit</button>
+        </form>
+
+        {% if error_message %}
+            <div class="alert alert-danger mt-3 animate__animated animate__shakeX">
+                {{ error_message }}
+            </div>
+        {% endif %}
+
+        {% if weather_data %}
+        <h3 class="mt-5 animate__animated animate__fadeIn  txt2">Weather Report</h3>
+        <table class="table table-bordered mt-3 animate__animated animate__zoomIn">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Temperature (°C)</th>
+                    <th>Humidity (%)</th>
+                    <th>Pressure (hPa)</th>
+                    <th>Wind Speed (m/s)</th>
+                    <th>Description</th>
+                    <th>Icon</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for city, data in weather_data.items() %}
+                <tr>
+                    <td>{{ city }}</td>
+                    <td>{{ data.temperature }}</td>
+                    <td>{{ data.humidity }}</td>
+                    <td>{{ data.pressure }}</td>
+                    <td>{{ data.wind_speed }}</td>
+                    <td>{{ data.description }}</td>
+                    <td><img src="http://openweathermap.org/img/wn/{{ data.icon }}@2x.png" alt="icon"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center mt-5 animate__animated animate__fadeInUp">
+            <img src="{{ url_for('static', filename='chart.png') }}" alt="Weather Comparison Chart">
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function generateCityInputs() {
+            const numCities = document.getElementById('num_cities').value;
+            const citiesInputs = document.getElementById('cities-inputs');
+            citiesInputs.innerHTML = '';
+            for (let i = 1; i <= numCities; i++) {
+                const cityInput = `
+                    <div class="mb-3 animate__animated animate__fadeInUp">
+                        <label for="city_${i}" class="form-label">City/Country ${i}:</label>
+                        <input type="text" class="form-control" id="city_${i}" name="city_${i}" required>
+                    </div>`;
+                citiesInputs.insertAdjacentHTML('beforeend', cityInput);
+            }
+        }
+    </script>
+</body>
+</html>

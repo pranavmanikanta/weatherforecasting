@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(to right, #6dd5fa, #2980b9);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto;
+}
+
+h2, h3, h4 {
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+}
+
+footer {
+    background: #2c3e50;
+}
+
+a.text-white:hover {
+    color: #18bc9c;
+    text-decoration: none;
+}

@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.bg1 {
+    background-color: aqua;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: auto;
+    align-items: center;
+}
+
+.txt {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 4px 4px 4px rgb(218, 186, 220);
+}
+
+.buttonbaground {
+    background-color: transparent;
+}
+
+button:hover {
+    background-color: rgb(29, 181, 241);
+}
+
+.btn1 {
+    border-radius: 12px 12px;
+    font-weight: bold;
+}
